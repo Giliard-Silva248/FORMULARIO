@@ -1,0 +1,21 @@
+body{
+    font-size: 12px;
+}
+
+form{
+    width: 700px;
+    margin: auto;
+    border: 1px solid;
+}
+
+form div{
+    margin: 5px;
+    padding: 5px;
+
+}
+
+.btn{
+    max-width: 500px;
+    width: 100%;
+    margin-left: 14%;
+}
