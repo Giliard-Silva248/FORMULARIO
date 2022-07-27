@@ -54,7 +54,7 @@ function enviar(){
             }
        // }
         /*------------------------------------------------------------*/
-        //function validateEmail(email) {
+       // function validateEmail(email) {
             let eMail = document.querySelector('#email').value
             let em = document.querySelector('.msg-error-email')
             let msgEmail = document.createElement('p')
@@ -66,12 +66,12 @@ function enviar(){
             if(!eMail.match(/\S+@\S+\.\S+/)){
                 msgEmail.innerHTML = 'E-mail invalido!'
                 em.replaceChildren(msgEmail, )
-            }else{
-                cartao.innerHTML += `E-MAIL: ${eMail}<br>`
+            }else if(eMail.match(/\S+@\S+\.\S+/)){
                 em.remove()
+                cartao.innerHTML += `E-MAIL: ${eMail}<br>`
                 return re.test(email);
             }  
-       // }
+        //}validateEmail()
         /*------------------------------------------------------------*/
        // function msgUser(){
             let user = document.querySelector('#user').value
@@ -89,74 +89,47 @@ function enviar(){
                 mu.remove()
                 cartao.innerHTML += `idUser: ${user} (Nº: #${n1})<br>` 
             }   
-     
+            /* 
+            #
+            */ 
             let bairro = document.querySelector('#bairro').value
             let ba = document.querySelector('.msg-error-bairro')
             let msgBairo = document.createElement('p')
             ba.insertAdjacentElement('beforeend', msgBairo)
+             /* 
+            #
+            */ 
+            if(bairro.length === 0){
+                  msgBairo.innerHTML += `Não pode estar vazio!`
+                  ba.replaceChildren(msgBairo, )
+              } else if(!bairro.match(/^[a-zA-Z]+$/g)){
+                  msgBairo.innerHTML += `Não pode conter números!`
+                  ba.replaceChildren(msgBairo, )
+                  
+              }else{
+                  ba.remove()
+                  cartao.innerHTML += `BAIRRO ${bairro}<br>`
+              }
         /* 
         #
         */ 
-            let cidade = document.querySelector('#cidade').value
-            let ci = document.querySelector('.msg-error-cidade')
-            let msgCidadde = document.createElement('p')
-            ci.insertAdjacentElement('beforeend', msgCidadde)
-        /* 
-        #
-        */ 
-            let rua = document.querySelector('#rua').value
-            let ru = document.querySelector('.msg-error-rua')
-            let msgRua = document.createElement('p')
-            ru.insertAdjacentElement('beforeend', msgRua)
-        /* 
-        #
-        */ 
-            let ncasa = document.querySelector('#ncasa').value
-            let nc = document.querySelector('.msg-error-ncasa')
-            let msgNCasa = document.createElement('p')
-            nc.insertAdjacentElement('beforeend', msgNCasa)
-        /* 
-        #
-        */ 
+       let cidade = document.querySelector('#cidade').value
+       let ci = document.querySelector('.msg-error-cidade')
+       let msgCidadde = document.createElement('p')
+       ci.insertAdjacentElement('beforeend', msgCidadde)
+       /* 
+       #
+       */ 
+      if(cidade.length === 0 ){
+          msgCidadde.innerHTML += `Não pode estar vazio!`
+          ci.replaceChildren(msgCidadde, )
+      }else if(!cidade.match(/^[a-zA-Z]+$/g)){
+          msgCidadde.innerHTML += `Não pode conter números!`
+          ci.replaceChildren(msgCidadde, )
+      }else{
+          ci.remove()
+          cartao.innerHTML += `CIDADE: ${cidade}<br>`
+      }
 
-       if(cidade.length === 0 ){
-           msgCidadde.innerHTML += `Não pode estar vazio!`
-           ci.replaceChildren(msgCidadde, )
-       }else if(!cidade.match(/^[a-zA-Z]+$/g)){
-           msgCidadde.innerHTML += `Não pode conter números!`
-           ci.replaceChildren(msgCidadde, )
-       }else{
-           ci.remove()
-           cartao.innerHTML += `CIDADE: ${cidade}<br>`
-       }
-
-      if(bairro.length === 0){
-            msgBairo.innerHTML += `Não pode estar vazio!`
-            ba.replaceChildren(msgBairo, )
-        } else if(!bairro.match(/^[a-zA-Z]+$/g)){
-            msgBairo.innerHTML += `Não pode conter números!`
-            ba.replaceChildren(msgBairo, )
-            
-        }else{
-            ba.remove()
-            cartao.innerHTML += `BAIRRO ${bairro}<br>`
-        }
-
-        if(rua.length === 0){
-            msgRua.innerHTML += `Não pode estar vazio!`
-            ru.replaceChildren(msgRua, )
-        }else if(!rua.match(/^[a-zA-Z]+$/g)){
-                msgRua.innerHTML += `Não pode conter números!`         
-                ru.replaceChildren(msgRua, )
-            } else{
-                cartao.innerHTML += `RUA: ${rua}`
-                ru.remove()
-                if(ncasa.length === 0){
-                    cartao.innerHTML += ` Nº: S/Nº`
-                }else{
-                    cartao.innerHTML += ` Nº: ${ncasa}<br>`
-                }
-            }  
-            
-        }   
-        
+          
+    }       
