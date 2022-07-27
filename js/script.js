@@ -1,14 +1,6 @@
-let cartao = document.querySelector('.cartao') 
 function enviar(){
+    let cartao = document.querySelector('.cartao') 
 
-    nomeCompleto() 
-        idade()
-            numTel()
-                msgUser()
-        validateEmail()
-    endereco()
-   /*------------------------------------------------------------*/
-        function nomeCompleto(){
             let nome = document.querySelector('#nome').value
             let no = document.querySelector('.msg-error-no')
             let msgNome = document.createElement('p')
@@ -26,9 +18,9 @@ function enviar(){
                 no.remove()
                 cartao.innerHTML += `NOME COMPLETO: ${nome}<br>`
             }   
-        }
+        //}
         /*------------------------------------------------------------*/
-        function idade(){  
+       // function idade(){  
             let idade = document.querySelector('#idade').value
             let ida = document.querySelector('.msg-error-idade')
             let msgIdade = document.createElement('p')
@@ -43,9 +35,9 @@ function enviar(){
                 ida.remove()
                 cartao.innerHTML += `IDADE: ${idade}<br>`
             }
-        }
+        //}
         /*------------------------------------------------------------*/
-        function numTel(){
+       // function numTel(){
             let tel = document.querySelector('#tel').value
             let nt = document.querySelector('.msg-error-tel')
             let msgTel = document.createElement('p')
@@ -60,9 +52,9 @@ function enviar(){
                 nt.remove()
                 cartao.innerHTML += `Nº DE TELEFONE: ${tel}<br>`
             }
-        }
+       // }
         /*------------------------------------------------------------*/
-        function validateEmail(email) {
+        //function validateEmail(email) {
             let eMail = document.querySelector('#email').value
             let em = document.querySelector('.msg-error-email')
             let msgEmail = document.createElement('p')
@@ -79,9 +71,9 @@ function enviar(){
                 em.remove()
                 return re.test(email);
             }  
-        }
+       // }
         /*------------------------------------------------------------*/
-        function msgUser(){
+       // function msgUser(){
             let user = document.querySelector('#user').value
             let mu = document.querySelector('.msg-error-us')
             let msgUser = document.createElement('p')
@@ -97,9 +89,7 @@ function enviar(){
                 mu.remove()
                 cartao.innerHTML += `idUser: ${user} (Nº: #${n1})<br>` 
             }   
-        }
-        /*------------------------------------------------------------*/
-        function endereco(){
+     
             let bairro = document.querySelector('#bairro').value
             let ba = document.querySelector('.msg-error-bairro')
             let msgBairo = document.createElement('p')
@@ -128,25 +118,45 @@ function enviar(){
         /* 
         #
         */ 
-            if(!bairro.match(/^[a-zA-Z]+$/g) || !cidade.match(/^[a-zA-Z]+$/g) || !rua.match(/^[a-zA-Z]+$/g)){
-                msgBairo.innerHTML += `Não pode conter números!`
-                msgCidadde.innerHTML += `Não pode conter números!`
-                msgRua.innerHTML += `Não pode conter números!`
-                ba.replaceChildren(msgBairo, )
-                ci.replaceChildren(msgCidadde, )
+
+       if(cidade.length === 0 ){
+           msgCidadde.innerHTML += `Não pode estar vazio!`
+           ci.replaceChildren(msgCidadde, )
+       }else if(!cidade.match(/^[a-zA-Z]+$/g)){
+           msgCidadde.innerHTML += `Não pode conter números!`
+           ci.replaceChildren(msgCidadde, )
+       }else{
+           ci.remove()
+           cartao.innerHTML += `CIDADE: ${cidade}<br>`
+       }
+
+      if(bairro.length === 0){
+            msgBairo.innerHTML += `Não pode estar vazio!`
+            ba.replaceChildren(msgBairo, )
+        } else if(!bairro.match(/^[a-zA-Z]+$/g)){
+            msgBairo.innerHTML += `Não pode conter números!`
+            ba.replaceChildren(msgBairo, )
+            
+        }else{
+            ba.remove()
+            cartao.innerHTML += `BAIRRO ${bairro}<br>`
+        }
+
+        if(rua.length === 0){
+            msgRua.innerHTML += `Não pode estar vazio!`
+            ru.replaceChildren(msgRua, )
+        }else if(!rua.match(/^[a-zA-Z]+$/g)){
+                msgRua.innerHTML += `Não pode conter números!`         
                 ru.replaceChildren(msgRua, )
             } else{
-                cartao.innerHTML += `ENDEREÇO: ${cidade}, ${bairro} - ${rua}`
-                ba.remove()
-                ci.remove()
+                cartao.innerHTML += `RUA: ${rua}`
                 ru.remove()
-                    if(ncasa.length == 0){
-                        cartao.innerHTML += ` Nº: S/Nº<br> `
-               
-                    } else{
-                        cartao.innerHTML += ` Nº: ${ncasa}<br> `
-                
-                    }
+                if(ncasa.length === 0){
+                    cartao.innerHTML += ` Nº: S/Nº`
+                }else{
+                    cartao.innerHTML += ` Nº: ${ncasa}<br>`
+                }
             }  
-        }
-}
+            
+        }   
+        
