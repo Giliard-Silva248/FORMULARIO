@@ -8,50 +8,46 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <form class="formu">
-    <div>
-        <label for="nome">NOME:</label><br>
-        <input type="text" name="nome" id="nome" placeholder="Nome completo!">
-        <span class="msg-error-no"></span>
-    </div>
-    <div>
-        <label for="idade">IDADE:</label><br>
-        <input type="number" name="idade" id="idade">
-        <span class="msg-error-idade"></span>
-    </div>
-    <div>
-        <label for="tel">Nº DE TELEFONE:</label><br>
-        <input type="number" name="tel" id="tel">
-        <span class="msg-error-tel"></span>
-    </div>
-    <div>
-        <label for="email">E-MAIL:</label><br>
-        <input type="email" name="email" id="email">
-        <span class="msg-error-email"></span>
-    </div>
-    <div>
-        <label for="user">idUser:</label><br>
-        <input type="text" name="user" id="user">
-        <span class="msg-error-us"></span>
-    </div>
-    <div>
-        <label for="bairro">BAIRRO:</label><br>
-        <input type="text" name="bairro" id="bairro">
-        <span class="msg-error-bairro"></span>
-    </div>
-    <div>
-        <label for="cidade">CIDADE:</label><br>
-        <input type="text" name="cidade" id="cidade">
-        <span class="msg-error-cidade"></span>
-    </div>
-    </div>
-    <input type="button" value="ENVIAR" onclick="enviar()" class="btn">
-    <input type="reset" value=" APAGAR" onclick="apagar()" class="btn">
-</form>
+    
+  <section class="container">
+    
 
-    <div class="cartao">
+    <form action="/" method="POST" class='formulario'>
+      
+            <h1>FORMULÁRIO DE CADASTRO</h1>
         
-    </div>
+       <div class="coluna-externa">
+
+       <div class="coluna-1">
+            <p>
+                <label for="nome validar">NOME:</label>
+                <input type="text" class="nome validar" id="nome validar">
+            </p>
+            <p>
+                <label for="sobrenome validar">SOBRENOME:</label>
+                <input type="text" class="sobrenome validar" id="sobrenome validar">
+            </p>
+        </div>
+        
+        <div class="coluna-1">
+            <p>
+                <label for="usuario validar">USUÁRIO:</label>
+                <input type="text" class="usuario validar" id="usuario validar">
+            </p>
+        <p>
+            <label for="senha validar">SENHA:</label>
+            <input type="password" class="senha validar" id="senha validar">
+        </p>
+        
+        </div>
+        
+
+        </div>
+        
+        <button type="button" class="btn">ENVIAR</button>
+   
+    </form>
+  </section>
     <script src="js/script.js"></script>
 </body>
 </html>
